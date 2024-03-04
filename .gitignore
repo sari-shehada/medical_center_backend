@@ -1,0 +1,12 @@
+
+**/__pycache__/
+
+
+media/
+static/
+
+meals/
+restaurants/
+
+
+*.sqlite3
