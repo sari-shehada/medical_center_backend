@@ -5,37 +5,37 @@ class Admin(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=200)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
 
 
 class Doctor(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    firstName = models.CharField(max_length=30)
+    lastName = models.CharField(max_length=30)
     username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
-    date_of_birth = models.DateField()
+    password = models.CharField(max_length=200)
+    dateOfBirth = models.DateField()
     certificateUrl = models.ImageField(upload_to='doctor_certificates/')
     isApproved = models.BooleanField(default=False)
     approvingAdminId = models.ForeignKey(
         Admin, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return self.firstName + " " + self.lastName
 
 
 class Patient(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    firstName = models.CharField(max_length=30)
+    lastName = models.CharField(max_length=30)
     username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
-    date_of_birth = models.DateField()
-    isMale = models.BooleanField(default=False)
+    password = models.CharField(max_length=200)
+    dateOfBirth = models.DateField()
+    isMale = models.BooleanField()
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return self.firstName + " " + self.lastName
 
 
 class Disease(models.Model):
