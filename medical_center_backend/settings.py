@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-p_ep@=^q+2mvh5qd_j&y-hrspx5tgo&oac!-8w$6%#jt*5r0c_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,6 +50,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
 ]
 
 ROOT_URLCONF = 'medical_center_backend.urls'
