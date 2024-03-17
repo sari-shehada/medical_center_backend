@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Admin(models.Model):
@@ -40,6 +41,7 @@ class Patient(models.Model):
 
 class Disease(models.Model):
     name = models.CharField(max_length=30)
+    datasetName = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -68,3 +70,29 @@ class DiseaseMedicine(models.Model):
 
     def __str__(self):
         return self.diseaseId.name + " | " + self.medicineId.name
+
+
+class Symptom(models.Model):
+    name = models.CharField(max_length=60)
+    datasetName = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class PatientDiagnosis(models.Model):
+    diseaseId = models.ForeignKey(Disease, on_delete=models.CASCADE)
+    patientId = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    diagnosisDateTime = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.patientId.__str__() + " | " + self.diseaseId.name
+
+
+class PatientDiagnosisSymptom(models.Model):
+    patientDiagnosisId = models.ForeignKey(
+        PatientDiagnosis, on_delete=models.CASCADE)
+    symptomId = models.ForeignKey(Symptom, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.patientDiagnosisId.__str__() + " | " + self.patientDiagnosisId.diagnosisDateTime + " | " + self.symptomId.name
