@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'medical_center_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medical_center_db',
+        'NAME': 'medicalcenter24$default',
         'USER': 'medicalcenter24',
         'PASSWORD': '7D9267BVac9t',
         'HOST': 'medicalcenter24.mysql.eu.pythonanywhere-services.com',
