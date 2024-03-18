@@ -40,11 +40,11 @@ class Patient(models.Model):
 
 
 class Disease(models.Model):
-    name = models.CharField(max_length=30)
-    datasetName = models.CharField(max_length=100)
+    name = models.CharField(max_length=30, unique=True)
+    datasetName = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.name + " | " + self.datasetName
 
 
 class DiseaseExternalLink(models.Model):
@@ -73,11 +73,11 @@ class DiseaseMedicine(models.Model):
 
 
 class Symptom(models.Model):
-    name = models.CharField(max_length=60)
-    datasetName = models.CharField(max_length=100)
+    name = models.CharField(max_length=60, unique=True)
+    datasetName = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.name + " | " + self.datasetName
 
 
 class PatientDiagnosis(models.Model):
