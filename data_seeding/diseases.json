@@ -1,0 +1,330 @@
+[
+    {
+        "model": "api.disease",
+        "pk": 1,
+        "fields": {
+            "name": "عدوى فطرية",
+            "datasetName": "Fungal infection"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 2,
+        "fields": {
+            "name": "حساسية",
+            "datasetName": "Allergy"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 3,
+        "fields": {
+            "name": "مرض الجزر المريئي المعدي",
+            "datasetName": "GERD"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 4,
+        "fields": {
+            "name": "ركود صفراوي مزمن",
+            "datasetName": "Chronic cholestasis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 5,
+        "fields": {
+            "name": "تفاعل دوائي",
+            "datasetName": "Drug Reaction"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 6,
+        "fields": {
+            "name": "مرض قرحة المعدة",
+            "datasetName": "Peptic ulcer disease"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 7,
+        "fields": {
+            "name": "متلازمة نقص المناعة المكتسبة (الإيدز)",
+            "datasetName": "AIDS"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 8,
+        "fields": {
+            "name": "السكري",
+            "datasetName": "Diabetes"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 9,
+        "fields": {
+            "name": "التهاب المعدة والأمعاء",
+            "datasetName": "Gastroenteritis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 10,
+        "fields": {
+            "name": "ربو الشعب الهوائية",
+            "datasetName": "Bronchial Asthma"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 11,
+        "fields": {
+            "name": "ارتفاع ضغط الدم",
+            "datasetName": "Hypertension"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 12,
+        "fields": {
+            "name": "صداع الشقيقة",
+            "datasetName": "Migraine"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 13,
+        "fields": {
+            "name": "تنكس عنق الرحم",
+            "datasetName": "Cervical spondylosis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 14,
+        "fields": {
+            "name": "شلل (نزيف في المخ)",
+            "datasetName": "Paralysis (brain hemorrhage)"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 15,
+        "fields": {
+            "name": "اليرقان",
+            "datasetName": "Jaundice"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 16,
+        "fields": {
+            "name": "الملاريا",
+            "datasetName": "Malaria"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 17,
+        "fields": {
+            "name": "جدري الماء",
+            "datasetName": "Chicken pox"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 18,
+        "fields": {
+            "name": "حمى الضنك",
+            "datasetName": "Dengue"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 19,
+        "fields": {
+            "name": "حمى التيفوئيد",
+            "datasetName": "Typhoid"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 20,
+        "fields": {
+            "name": "التهاب الكبد أ",
+            "datasetName": "hepatitis A"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 21,
+        "fields": {
+            "name": "التهاب الكبد ب",
+            "datasetName": "Hepatitis B"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 22,
+        "fields": {
+            "name": "التهاب الكبد ج",
+            "datasetName": "Hepatitis C"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 23,
+        "fields": {
+            "name": "التهاب الكبد د",
+            "datasetName": "Hepatitis D"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 24,
+        "fields": {
+            "name": "التهاب الكبد هـ",
+            "datasetName": "Hepatitis E"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 25,
+        "fields": {
+            "name": "التهاب الكبد الكحولي",
+            "datasetName": "Alcoholic hepatitis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 26,
+        "fields": {
+            "name": "السل",
+            "datasetName": "Tuberculosis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 27,
+        "fields": {
+            "name": "نزلة برد",
+            "datasetName": "Common Cold"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 28,
+        "fields": {
+            "name": "التهاب الرئة",
+            "datasetName": "Pneumonia"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 29,
+        "fields": {
+            "name": "بواسير ثنائي التوجه (البواسير)",
+            "datasetName": "Dimorphic hemorrhoids (piles)"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 30,
+        "fields": {
+            "name": "أزمة قلبية",
+            "datasetName": "Heart attack"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 31,
+        "fields": {
+            "name": "توسع الأوردة",
+            "datasetName": "Varicose veins"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 32,
+        "fields": {
+            "name": "قصور الغدة الدرقية",
+            "datasetName": "Hypothyroidism"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 33,
+        "fields": {
+            "name": "زيادة نشاط الغدة الدرقية",
+            "datasetName": "Hyperthyroidism"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 34,
+        "fields": {
+            "name": "انخفاض سكر الدم",
+            "datasetName": "Hypoglycemia"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 35,
+        "fields": {
+            "name": "التهاب المفاصل العظمي",
+            "datasetName": "Osteoarthritis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 36,
+        "fields": {
+            "name": "التهاب المفاصل",
+            "datasetName": "Arthritis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 37,
+        "fields": {
+            "name": "(دوار) الدوار الأنبوبي",
+            "datasetName": "Paroxysmal positional vertigo (vertigo)"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 38,
+        "fields": {
+            "name": "حب الشباب",
+            "datasetName": "Acne"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 39,
+        "fields": {
+            "name": "التهاب المسالك البولية",
+            "datasetName": "Urinary tract infection"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 40,
+        "fields": {
+            "name": "الصدفية",
+            "datasetName": "Psoriasis"
+        }
+    },
+    {
+        "model": "api.disease",
+        "pk": 41,
+        "fields": {
+            "name": "الجرب",
+            "datasetName": "Impetigo"
+        }
+    }
+]
