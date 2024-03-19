@@ -32,7 +32,7 @@ def loginPatient(request):
         return Response("Please provide a password", status=status.HTTP_400_BAD_REQUEST)
 
     try:
-        user = doctor = Patient.objects.get(username=username)
+        user = Patient.objects.get(username=username)
         if (check_password(password=password, encoded=user.password)):
             return Response(PatientDisplaySerializer(user, context={'request': request}).data)
         else:

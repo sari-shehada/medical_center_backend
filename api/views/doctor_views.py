@@ -33,7 +33,7 @@ def loginDoctor(request):
         return Response("Please provide a password", status=status.HTTP_400_BAD_REQUEST)
 
     try:
-        user = doctor = Doctor.objects.get(username=username)
+        user = Doctor.objects.get(username=username)
         if (check_password(password=password, encoded=user.password)):
             return Response(DoctorDisplaySerializer(user, context={'request': request}).data)
         else:
