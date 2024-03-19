@@ -84,6 +84,7 @@ class PatientDiagnosis(models.Model):
     diseaseId = models.ForeignKey(Disease, on_delete=models.CASCADE)
     patientId = models.ForeignKey(Patient, on_delete=models.CASCADE)
     diagnosisDateTime = models.DateTimeField(default=timezone.now)
+    isSubmittedForFurtherFollowup = models.BooleanField(default=False)
 
     def __str__(self):
         return self.patientId.__str__() + " | " + self.diseaseId.name
@@ -96,3 +97,32 @@ class PatientDiagnosisSymptom(models.Model):
 
     def __str__(self):
         return self.patientDiagnosisId.__str__() + " | " + str(self.patientDiagnosisId.diagnosisDateTime) + " | " + self.symptomId.name
+
+
+medical_case_status = (
+    ('pending', 'Pending'),
+    ('taken', 'Taken'),
+    ('ended', 'Ended')
+)
+
+
+class MedicalCase(models.Model):
+    diagnosisId = models.OneToOneField(
+        PatientDiagnosis, on_delete=models.CASCADE)
+    status = models.CharField(
+        max_length=20, choices=medical_case_status, default='pending')
+    takenBy = models.ForeignKey(
+        Doctor, null=True, blank=True, on_delete=models.CASCADE)
+
+
+message_urgency_level = (
+    ('normal', 'Normal'),
+    ('critical', 'Critical'),
+)
+
+
+class MedicalCaseMessage(models.Model):
+    caseId = models.ForeignKey(MedicalCase, on_delete=models.CASCADE)
+    message = models.CharField(max_length=150,)
+    urgencyLevel = models.CharField(
+        max_length=100, choices=message_urgency_level, default='normal')
