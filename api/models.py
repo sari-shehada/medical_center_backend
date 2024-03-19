@@ -95,4 +95,4 @@ class PatientDiagnosisSymptom(models.Model):
     symptomId = models.ForeignKey(Symptom, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.patientDiagnosisId.__str__() + " | " + self.patientDiagnosisId.diagnosisDateTime + " | " + self.symptomId.name
+        return self.patientDiagnosisId.__str__() + " | " + str(self.patientDiagnosisId.diagnosisDateTime) + " | " + self.symptomId.name
