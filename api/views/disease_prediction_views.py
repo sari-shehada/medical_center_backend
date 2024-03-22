@@ -1,3 +1,4 @@
+import os
 import joblib
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -7,6 +8,8 @@ from api.models import Disease, Patient, Symptom
 from api.serializers import AddDiagnosisSerializer, AddPatientDiagnosisSymptomSerializer, DiagnosisDetailsSerializer, SymptomIdsListSerializer
 import pandas as pd
 import pickle
+
+from api.definitions import API_APP_DIR
 
 
 symptomsList = [
@@ -144,7 +147,9 @@ symptomsList = [
     "yellow_crust_ooze",
 ]
 
-classification_model = joblib.load('api/ai_model/classification_model.pkl')
+model_path = os.path.join(API_APP_DIR, 'ai_model/classification_model.pkl')
+
+classification_model = joblib.load(model_path)
 
 
 @api_view(['POST'])
