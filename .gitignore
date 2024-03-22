@@ -10,3 +10,5 @@ restaurants/
 
 
 *.sqlite3
+
+*.pkl
