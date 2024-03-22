@@ -1,10 +1,10 @@
-from api.models import Admin
+from api.models import Admin, Doctor
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import check_password, make_password
 
-from api.serializers import AdminDisplaySerializer
+from api.serializers import AdminDisplaySerializer, DoctorDisplaySerializer
 
 
 @api_view(['POST'])
@@ -24,3 +24,36 @@ def loginAdmin(request):
             return Response(False)
     except Admin.DoesNotExist:
         return Response(False)
+
+
+@api_view(['GET'])
+def getPendingDoctors(request):
+    pending_doctors = Doctor.objects.filter(isApproved=False)
+    return Response(DoctorDisplaySerializer(pending_doctors, many=True, context={'request': request}).data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def approveDoctorApplication(request, doctorId):
+    adminId = request.data.get('adminId')
+    if adminId is None:
+        return Response("No Admin Id was provided", status=status.HTTP_400_BAD_REQUEST)
+
+    doctor = Doctor.objects.filter(id=doctorId).first()
+    if doctor is None:
+        return Response("Doctor not found", status=status.HTTP_404_NOT_FOUND)
+    if doctor.isApproved == True:
+        return Response("This Doctor is already approved", status=status.HTTP_400_BAD_REQUEST)
+    Doctor.objects.filter(id=doctorId).update(
+        isApproved=True, approvingAdminId=adminId)
+    return Response(True, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def rejectDoctorApplication(request, doctorId):
+    doctor = Doctor.objects.filter(id=doctorId).first()
+    if doctor is None:
+        return Response("Doctor not found", status=status.HTTP_404_NOT_FOUND)
+    if doctor.isApproved == True:
+        return Response("This doctor is already approved, cannot reject", status=status.HTTP_400_BAD_REQUEST)
+    Doctor.objects.filter(id=doctorId).delete()
+    return Response(True, status=status.HTTP_200_OK)

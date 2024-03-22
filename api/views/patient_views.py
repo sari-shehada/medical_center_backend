@@ -1,10 +1,10 @@
-from api.models import Patient
+from api.models import Patient, PatientDiagnosis
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import make_password, check_password
 
-from api.serializers import AddPatientSerializer, PatientDisplaySerializer
+from api.serializers import AddPatientSerializer, PatientDisplaySerializer, DiagnosisDetailsSerializer
 
 
 @api_view(['POST'])
@@ -39,3 +39,9 @@ def loginPatient(request):
             return Response(False)
     except Patient.DoesNotExist:
         return Response(False)
+
+
+@api_view(['GET'])
+def getDiagnosisHistory(request, userId):
+    diagnostics = PatientDiagnosis.objects.filter(patientId=userId)
+    return Response(DiagnosisDetailsSerializer(diagnostics, many=True).data, status=status.HTTP_200_OK)

@@ -10,13 +10,16 @@ from api.serializers import AddDoctorSerializer, DoctorDisplaySerializer
 
 @api_view(['POST'])
 def registerNewDoctor(request):
-    body = request.data
-    if 'password' not in body.keys():
+    requestData = request.data
+    if 'password' not in requestData.keys():
         return Response("Please provide a password", status=status.HTTP_400_BAD_REQUEST)
 
-    plainPassword = body['password']
-    body['password'] = make_password(plainPassword)
-    addDoctorSerializer = AddDoctorSerializer(data=body)
+    plainPassword = requestData.get('password')
+    hashedPassword = make_password(plainPassword)
+    requestData._mutable = True
+    requestData['password'] = hashedPassword
+
+    addDoctorSerializer = AddDoctorSerializer(data=requestData)
     if addDoctorSerializer.is_valid():
         user = addDoctorSerializer.save()
         return Response(DoctorDisplaySerializer(user, context={'request': request}).data, status=status.HTTP_201_CREATED)
