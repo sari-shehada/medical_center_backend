@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Admin, Disease, DiseaseExternalLink, Doctor, MedicalCase, Medicine, Patient, DiseaseMedicine, PatientDiagnosis, PatientDiagnosisSymptom, Symptom
+from api.models import Admin, Disease, DiseaseExternalLink, Doctor, MedicalCase, MedicalCaseMessage, Medicine, Patient, DiseaseMedicine, PatientDiagnosis, PatientDiagnosisSymptom, Symptom
 
 
 class AddDoctorSerializer(serializers.ModelSerializer):
@@ -203,3 +203,15 @@ class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
             'disease',
             'symptoms',
         ]
+
+
+class AddMedicalCaseMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCaseMessage
+        fields = '__all__'
+
+
+class MedicalCaseMessageDisplaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCaseMessage
+        fields = '__all__'

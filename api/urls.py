@@ -1,6 +1,6 @@
 from django.urls import include, path
 
-from api.views import doctor_views, patient_views, admin_views, disease_views, medicine_views, disease_prediction_views
+from api.views import doctor_views, medical_case_views, patient_views, admin_views, disease_views, medicine_views, disease_prediction_views
 
 api_urls = [
     # Admin end-points
@@ -44,4 +44,11 @@ api_urls = [
          disease_prediction_views.diagnoseDisease),
     path('patients/<int:userId>/diagnostics/<int:diagnosisId>/submitMedicalCase/',
          patient_views.submitNewMedicalCase),
+
+    # Medical Case Chat end-points
+    path('medicalCases/<int:caseId>/',
+         medical_case_views.getMedicalCaseMessages),
+    path('medicalCases/<int:caseId>/sendMessage/',
+         medical_case_views.sendMessageToMedicalCaseChat),
+
 ]
