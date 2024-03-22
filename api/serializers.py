@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Admin, Disease, DiseaseExternalLink, Doctor, Medicine, Patient, DiseaseMedicine, PatientDiagnosis, PatientDiagnosisSymptom, Symptom
+from api.models import Admin, Disease, DiseaseExternalLink, Doctor, MedicalCase, Medicine, Patient, DiseaseMedicine, PatientDiagnosis, PatientDiagnosisSymptom, Symptom
 
 
 class AddDoctorSerializer(serializers.ModelSerializer):
@@ -158,3 +158,48 @@ class DiagnosisDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PatientDiagnosis
         fields = '__all__'
+
+
+class MedicalCaseOnlySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCase
+        fields = '__all__'
+
+
+class PatientDiagnosisOnlySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PatientDiagnosis
+        fields = '__all__'
+
+
+class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
+    medicalCase = serializers.SerializerMethodField(read_only=True)
+    patientDiagnosis = serializers.SerializerMethodField(read_only=True)
+    disease = serializers.SerializerMethodField(read_only=True)
+    symptoms = serializers.SerializerMethodField(read_only=True)
+
+    def get_medicalCase(self, medical_case):
+        return MedicalCaseOnlySerializer(medical_case).data
+
+    def get_patientDiagnosis(self, medical_case):
+
+        return PatientDiagnosisOnlySerializer(medical_case.diagnosisId).data
+
+    def get_disease(self, medical_case):
+        return DiseaseOnlySerializer(medical_case.diagnosisId.diseaseId).data
+
+    def get_symptoms(self, medical_case):
+        diagnosisSymptoms = PatientDiagnosisSymptom.objects.filter(
+            patientDiagnosisId=medical_case.diagnosisId.pk)
+        diagnosisSymptoms = [
+            diagnosisSymptom.symptomId for diagnosisSymptom in diagnosisSymptoms]
+        return SymptomDisplaySerializer(diagnosisSymptoms, many=True).data
+
+    class Meta:
+        model = MedicalCase
+        fields = [
+            'medicalCase',
+            'patientDiagnosis',
+            'disease',
+            'symptoms',
+        ]

@@ -32,6 +32,8 @@ api_urls = [
     # Doctor end-points
     path('doctors/new/', doctor_views.registerNewDoctor),
     path('doctors/login/', doctor_views.loginDoctor),
+    path('medicalCases/', doctor_views.getNewMedicalCases),
+    path('medicalCases/<int:caseId>/takeCase/', doctor_views.takeMedicalCase),
 
     # Patient end-points
     path('patients/new/', patient_views.registerNewPatient),
@@ -40,4 +42,6 @@ api_urls = [
          patient_views.getDiagnosisHistory),
     path('patients/<int:userId>/diagnoseDisease/',
          disease_prediction_views.diagnoseDisease),
+    path('patients/<int:userId>/diagnostics/<int:diagnosisId>/submitMedicalCase/',
+         patient_views.submitNewMedicalCase),
 ]

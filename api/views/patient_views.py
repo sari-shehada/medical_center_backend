@@ -1,4 +1,4 @@
-from api.models import Patient, PatientDiagnosis
+from api.models import MedicalCase, Patient, PatientDiagnosis
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -45,3 +45,22 @@ def loginPatient(request):
 def getDiagnosisHistory(request, userId):
     diagnostics = PatientDiagnosis.objects.filter(patientId=userId)
     return Response(DiagnosisDetailsSerializer(diagnostics, many=True).data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def submitNewMedicalCase(request, userId, diagnosisId):
+    patientDiagnosis = PatientDiagnosis.objects.filter(id=diagnosisId).first()
+    if not patientDiagnosis:
+        return Response('This Diagnosis was not found, perhaps it was removed!', status=status.HTTP_404_NOT_FOUND)
+
+    if patientDiagnosis.patientId.pk != userId:
+        return Response('Invalid patient id provided', status=status.HTTP_400_BAD_REQUEST)
+
+    if patientDiagnosis.isSubmittedForFurtherFollowup:
+        return Response('Diagnosis already submitted for further follow-up', status=status.HTTP_400_BAD_REQUEST)
+
+    MedicalCase.objects.create(diagnosisId=patientDiagnosis)
+    PatientDiagnosis.objects.filter(id=diagnosisId).update(
+        isSubmittedForFurtherFollowup=True)
+
+    return Response('This diagnosis was submitted as a medical case', status=status.HTTP_200_OK)

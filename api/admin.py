@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from api.models import Admin, Disease, DiseaseExternalLink, DiseaseMedicine, Doctor, Medicine, Patient, Symptom, PatientDiagnosis, PatientDiagnosisSymptom
+from api.models import Admin, Disease, MedicalCaseMessage, DiseaseExternalLink, MedicalCase, DiseaseMedicine, Doctor, Medicine, Patient, Symptom, PatientDiagnosis, PatientDiagnosisSymptom
 
 admin.site.register(Doctor)
 admin.site.register(Admin)
@@ -12,3 +12,5 @@ admin.site.register(DiseaseExternalLink)
 admin.site.register(Symptom)
 admin.site.register(PatientDiagnosis)
 admin.site.register(PatientDiagnosisSymptom)
+admin.site.register(MedicalCase)
+admin.site.register(MedicalCaseMessage)

@@ -1,11 +1,11 @@
-from api.models import Doctor
+from api.models import Doctor, MedicalCase
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import make_password, check_password
 
 
-from api.serializers import AddDoctorSerializer, DoctorDisplaySerializer
+from api.serializers import AddDoctorSerializer, DoctorDisplaySerializer, MedicalCaseDetailsSerializer
 
 
 @api_view(['POST'])
@@ -43,3 +43,31 @@ def loginDoctor(request):
             return Response(False)
     except Doctor.DoesNotExist:
         return Response(False)
+
+
+@api_view(['GET'])
+def getNewMedicalCases(request):
+    newCases = MedicalCase.objects.filter(status='pending').order_by('id')
+    return Response(MedicalCaseDetailsSerializer(newCases, many=True).data)
+
+
+@api_view(['POST'])
+def takeMedicalCase(request, caseId):
+    doctorId = request.data.get('doctorId')
+
+    if not doctorId:
+        return Response('No doctor id was provided', status=status.HTTP_400_BAD_REQUEST)
+    doctor = Doctor.objects.filter(id=doctorId).first()
+    if not doctor:
+        return Response('Doctor not found', status=status.HTTP_404_NOT_FOUND)
+    medicalCase = MedicalCase.objects.filter(id=caseId).first()
+    if not medicalCase:
+        # TODO: Localize these 2
+        return Response('Medical Case not found, perhaps it was deleted', status=status.HTTP_404_NOT_FOUND)
+    if medicalCase.status != 'pending':
+        return Response('This case is already taken', status=status.HTTP_400_BAD_REQUEST)
+
+    MedicalCase.objects.filter(id=caseId).update(
+        status='taken', takenBy=doctorId)
+
+    return Response(True)

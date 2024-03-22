@@ -124,5 +124,6 @@ message_urgency_level = (
 class MedicalCaseMessage(models.Model):
     caseId = models.ForeignKey(MedicalCase, on_delete=models.CASCADE)
     message = models.CharField(max_length=150,)
+    senderIsDoctor = models.BooleanField()
     urgencyLevel = models.CharField(
         max_length=100, choices=message_urgency_level, default='normal')
