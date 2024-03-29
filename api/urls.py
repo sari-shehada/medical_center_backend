@@ -5,6 +5,7 @@ from api.views import doctor_views, medical_case_views, patient_views, admin_vie
 api_urls = [
     # Admin end-points
     path('admins/login/', admin_views.loginAdmin),
+    path('admins/<int:adminId>/', admin_views.getById),
     path('doctors/pending/', admin_views.getPendingDoctors),
     path('doctors/<int:doctorId>/approveApplication/',
          admin_views.approveDoctorApplication),
@@ -32,12 +33,14 @@ api_urls = [
     # Doctor end-points
     path('doctors/new/', doctor_views.registerNewDoctor),
     path('doctors/login/', doctor_views.loginDoctor),
+    path('doctors/<int:userId>/', doctor_views.getById),
     path('medicalCases/', doctor_views.getNewMedicalCases),
     path('medicalCases/<int:caseId>/takeCase/', doctor_views.takeMedicalCase),
 
     # Patient end-points
     path('patients/new/', patient_views.registerNewPatient),
     path('patients/login/', patient_views.loginPatient),
+    path('patients/<int:userId>/', patient_views.getById),
     path('patients/<int:userId>/diagnosisHistory/',
          patient_views.getDiagnosisHistory),
     path('patients/<int:userId>/diagnoseDisease/',

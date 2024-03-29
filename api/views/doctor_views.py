@@ -45,6 +45,14 @@ def loginDoctor(request):
         return Response(False)
 
 
+@api_view(['POST'])
+def getById(request, userId):
+    user = Doctor.objects.filter(id=userId)
+    if not user:
+        return Response('Doctor not found', status=status.HTTP_404_NOT_FOUND)
+    return Response(DoctorDisplaySerializer(user).data, status=status.HTTP_200_OK)
+
+
 @api_view(['GET'])
 def getNewMedicalCases(request):
     newCases = MedicalCase.objects.filter(status='pending').order_by('id')

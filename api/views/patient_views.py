@@ -41,6 +41,14 @@ def loginPatient(request):
         return Response(False)
 
 
+@api_view(['POST'])
+def getById(request, userId):
+    user = Patient.objects.filter(id=userId)
+    if not user:
+        return Response('User not found', status=status.HTTP_404_NOT_FOUND)
+    return Response(PatientDisplaySerializer(user).data, status=status.HTTP_200_OK)
+
+
 @api_view(['GET'])
 def getDiagnosisHistory(request, userId):
     diagnostics = PatientDiagnosis.objects.filter(patientId=userId)

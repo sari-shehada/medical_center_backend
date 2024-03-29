@@ -26,6 +26,14 @@ def loginAdmin(request):
         return Response(False)
 
 
+@api_view(['POST'])
+def getById(request, adminId):
+    user = Admin.objects.filter(id=adminId)
+    if not user:
+        return Response('Admin not found', status=status.HTTP_404_NOT_FOUND)
+    return Response(AdminDisplaySerializer(user).data, status=status.HTTP_200_OK)
+
+
 @api_view(['GET'])
 def getPendingDoctors(request):
     pending_doctors = Doctor.objects.filter(isApproved=False)
