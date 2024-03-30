@@ -43,7 +43,7 @@ def loginPatient(request):
 
 @api_view(['GET'])
 def getById(request, userId):
-    user = Patient.objects.filter(id=userId)
+    user = Patient.objects.filter(id=userId).first()
     if not user:
         return Response('User not found', status=status.HTTP_404_NOT_FOUND)
     return Response(PatientDisplaySerializer(user).data, status=status.HTTP_200_OK)

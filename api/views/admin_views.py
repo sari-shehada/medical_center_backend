@@ -28,7 +28,7 @@ def loginAdmin(request):
 
 @api_view(['GET'])
 def getById(request, adminId):
-    user = Admin.objects.filter(id=adminId)
+    user = Admin.objects.filter(id=adminId).first()
     if not user:
         return Response('Admin not found', status=status.HTTP_404_NOT_FOUND)
     return Response(AdminDisplaySerializer(user).data, status=status.HTTP_200_OK)
