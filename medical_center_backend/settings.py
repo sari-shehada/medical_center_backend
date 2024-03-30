@@ -98,26 +98,26 @@ DEFAULT_CHARSET = 'utf-8'
 
 
 # Local
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medical_center_db',
-        'USER': 'root',
-        'PASSWORD': 'sari12345',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-# Hosting
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'medicalcenter24$default',
-#         'USER': 'medicalcenter24',
-#         'PASSWORD': '7D9267BVac9t',
-#         'HOST': 'medicalcenter24.mysql.eu.pythonanywhere-services.com',
+#         'NAME': 'medical_center_db',
+#         'USER': 'root',
+#         'PASSWORD': 'sari12345',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
 #     }
 # }
+# Hosting
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'medicalcenter24$default',
+        'USER': 'medicalcenter24',
+        'PASSWORD': '7D9267BVac9t',
+        'HOST': 'medicalcenter24.mysql.eu.pythonanywhere-services.com',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
