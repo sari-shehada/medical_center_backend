@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'medical_center_backend.charset_middleware.CharsetMiddleware',
 ]
 
 
@@ -77,6 +78,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'medical_center_backend.wsgi.application'
 
+DEFAULT_CHARSET = 'utf-8'
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'medical_center_backend.renderers.CustomRenderer',
+#     ],
+# }
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -90,26 +98,26 @@ WSGI_APPLICATION = 'medical_center_backend.wsgi.application'
 
 
 # Local
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'medical_center_db',
-#         'USER': 'root',
-#         'PASSWORD': 'sari12345',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
-# Hosting
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medicalcenter24$default',
-        'USER': 'medicalcenter24',
-        'PASSWORD': '7D9267BVac9t',
-        'HOST': 'medicalcenter24.mysql.eu.pythonanywhere-services.com',
+        'NAME': 'medical_center_db',
+        'USER': 'root',
+        'PASSWORD': 'sari12345',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+# Hosting
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'medicalcenter24$default',
+#         'USER': 'medicalcenter24',
+#         'PASSWORD': '7D9267BVac9t',
+#         'HOST': 'medicalcenter24.mysql.eu.pythonanywhere-services.com',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
