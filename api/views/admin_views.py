@@ -26,7 +26,7 @@ def loginAdmin(request):
         return Response(False)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def getById(request, adminId):
     user = Admin.objects.filter(id=adminId)
     if not user:

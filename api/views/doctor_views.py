@@ -45,7 +45,7 @@ def loginDoctor(request):
         return Response(False)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def getById(request, userId):
     user = Doctor.objects.filter(id=userId)
     if not user:
