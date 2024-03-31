@@ -215,3 +215,21 @@ class MedicalCaseMessageDisplaySerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalCaseMessage
         fields = '__all__'
+
+
+class ExternalLinkDetailsSerializer(serializers.ModelSerializer):
+    externalLink = serializers.SerializerMethodField(read_only=True)
+    disease = serializers.SerializerMethodField(read_only=True)
+
+    def get_externalLink(self, external_link):
+        return ExternalLinkDisplaySerializer(external_link).data
+
+    def get_disease(self, external_link):
+        return DiseaseOnlySerializer(external_link.diseaseId).data
+
+    class Meta:
+        model = DiseaseExternalLink
+        fields = [
+            'externalLink',
+            'disease'
+        ]

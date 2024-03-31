@@ -13,6 +13,8 @@ api_urls = [
          admin_views.rejectDoctorApplication),
 
 
+    # Home Page Feed
+    path('feed/', disease_views.getReadingList),
 
     path('symptoms/', disease_views.getSymptomsList),
     path('diseases/', disease_views.getDiseasesList),

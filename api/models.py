@@ -48,7 +48,7 @@ class Disease(models.Model):
 
 
 class DiseaseExternalLink(models.Model):
-    title = models.CharField(max_length=60)
+    title = models.CharField(max_length=200)
     link = models.CharField(max_length=2000)
     diseaseId = models.ForeignKey(Disease, on_delete=models.CASCADE)
 
