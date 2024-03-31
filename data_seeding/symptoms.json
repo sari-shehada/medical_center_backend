@@ -2,8 +2,379 @@
     {
         "model": "api.symptom",
         "fields": {
-            "name": "الحكة",
-            "datasetName": "itching"
+            "name": "سيلان الأنف",
+            "datasetName": "runny_nose"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "عطس",
+            "datasetName": "sneezing"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم في الحلق",
+            "datasetName": "sore_throat"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "سعال",
+            "datasetName": "cough"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "آلام الجسم",
+            "datasetName": "body_aches"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "صداع",
+            "datasetName": "headache"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تعب",
+            "datasetName": "fatigue"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "عيون دامعة",
+            "datasetName": "watery_eyes"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حمى",
+            "datasetName": "fever"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "قشعريرة",
+            "datasetName": "chills"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "زيادة في الوزن",
+            "datasetName": "weight_gain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "جفاف الجلد",
+            "datasetName": "dry_skin"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "إمساك",
+            "datasetName": "constipation"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "اكتئاب",
+            "datasetName": "depression"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "الشعور بالبرد",
+            "datasetName": "feeling_cold"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ضعف العضلات",
+            "datasetName": "muscle_weakness"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تساقط الشعر",
+            "datasetName": "hair_loss"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "مشاكل في الذاكرة",
+            "datasetName": "memory_problems"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "فقدان الصوت",
+            "datasetName": "hoarseness"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "انتفاخ في الوجه",
+            "datasetName": "puffy_face"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "دوار",
+            "datasetName": "dizziness"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "رؤية غير واضحة",
+            "datasetName": "blurred_vision"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم في الصدر",
+            "datasetName": "chest_pain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ضيق التنفس",
+            "datasetName": "shortness_of_breath"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "اضطراب في نبضات القلب",
+            "datasetName": "irregular_heartbeat"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "دم في البول",
+            "datasetName": "blood_in_urine"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "نبض في الصدر",
+            "datasetName": "pounding_in_the_chest"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "نبض في الرقبة",
+            "datasetName": "pounding_in_the_neck"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "نبض في الأذنين",
+            "datasetName": "pounding_in_the_ears"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "نزيف الأنف",
+            "datasetName": "nosebleeds"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "احمرار الوجه",
+            "datasetName": "facial_flushing"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "خدر أو وخز",
+            "datasetName": "numbness_or_tingling"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حرقة في المعدة",
+            "datasetName": "heartburn"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ارتجاع المريء",
+            "datasetName": "acid_reflux"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ارتجاع محتويات المعدة",
+            "datasetName": "regurgitation_of_stomach_contents"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "صعوبة في البلع",
+            "datasetName": "difficulty_swallowing"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "شعور بوجود كتلة في الحلق",
+            "datasetName": "feeling_of_a_lump_in_the_throat"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "زيادة افراز اللعاب",
+            "datasetName": "excessive_saliva"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "رائحة الفم الكريهة",
+            "datasetName": "bad_breath"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "غثيان",
+            "datasetName": "nausea"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تآكل الأسنان",
+            "datasetName": "tooth_erosion"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "احتقان الصدر",
+            "datasetName": "chest_congestion"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "صفير في الرئة عند التنفس",
+            "datasetName": "wheezing"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم في البطن",
+            "datasetName": "abdominal_pain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "انتفاخ",
+            "datasetName": "bloating"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "اضطراب في الأمعاء",
+            "datasetName": "bowel_habits_changes"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "غاز زائد",
+            "datasetName": "excess_gas"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "إسهال",
+            "datasetName": "diarrhea"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "التقيؤ",
+            "datasetName": "vomiting"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "فقدان الشهية",
+            "datasetName": "loss_of_appetite"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "جفاف",
+            "datasetName": "dehydration"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حكة في العينين",
+            "datasetName": "itchy_eyes"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حكة في الحلق",
+            "datasetName": "itchy_throat"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "دوائر سوداء تحت العينين",
+            "datasetName": "dark_circles_under_the_eyes"
         }
     },
     {
@@ -16,29 +387,71 @@
     {
         "model": "api.symptom",
         "fields": {
-            "name": "طفح جلدي عقدي",
-            "datasetName": "nodal_skin_eruptions"
+            "name": "صعوبة في النوم",
+            "datasetName": "difficulty_sleeping"
         }
     },
     {
         "model": "api.symptom",
         "fields": {
-            "name": "عطس مستمر",
-            "datasetName": "continuous_sneezing"
+            "name": "فقدان الشم",
+            "datasetName": "loss_of_smell"
         }
     },
     {
         "model": "api.symptom",
         "fields": {
-            "name": "رعشة",
-            "datasetName": "shivering"
+            "name": "فقدان التذوق",
+            "datasetName": "loss_of_taste"
         }
     },
     {
         "model": "api.symptom",
         "fields": {
-            "name": "ألم المفاصل",
-            "datasetName": "joint_pain"
+            "name": "تعرق",
+            "datasetName": "sweating"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تنفس سريع",
+            "datasetName": "rapid_breathing"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "سعال إنتاجي",
+            "datasetName": "productive_cough"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "الارتباك",
+            "datasetName": "confusion"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "وخز في المعدة",
+            "datasetName": "burning_sensation_in_the_stomach"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "فقدان الوزن",
+            "datasetName": "weight_loss"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "براز داكن أو دموي",
+            "datasetName": "dark_or_bloody_stools"
         }
     },
     {
@@ -51,69 +464,166 @@
     {
         "model": "api.symptom",
         "fields": {
-            "name": "حموضة",
-            "datasetName": "acidity"
+            "name": "اضطراب الهضم",
+            "datasetName": "indigestion"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 10,
         "fields": {
-            "name": "قرحة على اللسان",
-            "datasetName": "ulcers_on_tongue"
+            "name": "الفواق",
+            "datasetName": "hiccups"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 11,
         "fields": {
-            "name": "تضخم العضلات",
-            "datasetName": "muscle_wasting"
+            "name": "تجشؤ",
+            "datasetName": "belching"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 12,
         "fields": {
-            "name": "القيء",
-            "datasetName": "vomiting"
+            "name": "ألم في المفاصل",
+            "datasetName": "joint_pain"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 13,
         "fields": {
-            "name": "التبول الحارق",
-            "datasetName": "burning_micturition"
+            "name": "تيبس في المفاصل",
+            "datasetName": "joint_stiffness"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 14,
         "fields": {
-            "name": "تنقطع التبول",
-            "datasetName": "spotting_urination"
+            "name": "تورم في المفاصل",
+            "datasetName": "joint_swelling"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 15,
         "fields": {
-            "name": "التعب",
-            "datasetName": "fatigue"
+            "name": "حركة مقتصرة",
+            "datasetName": "reduced_motion"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 16,
         "fields": {
-            "name": "زيادة الوزن",
-            "datasetName": "weight_gain"
+            "name": "تحسس في المفاصل",
+            "datasetName": "joint_tenderness"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 17,
+        "fields": {
+            "name": "نمو عظمي زائد",
+            "datasetName": "bone_spurs"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تشوه المفصل",
+            "datasetName": "joint_deformity"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "صوت طقطقة المفاصل",
+            "datasetName": "cracking_sound_joints"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "صداع حاد",
+            "datasetName": "severe_headache"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حساسية للضوء",
+            "datasetName": "light_sensitivity"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "حساسية للأصوات",
+            "datasetName": "sound_sensitivity"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "اضطرابات بصرية",
+            "datasetName": "visual_disturbances"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم نابض أو نبضي",
+            "datasetName": "throbbing_or_pulsating_pain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "وخز أو خدر في الأطراف",
+            "datasetName": "tingling_or_numbness"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "عدم راحة في الصدر",
+            "datasetName": "chest_discomfort"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "احتقان الأنف",
+            "datasetName": "nasal_congestion"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تسارع ضربات القلب",
+            "datasetName": "rapid_heartbeat"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "التهيج",
+            "datasetName": "irritability"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "التجاعيد",
+            "datasetName": "tremors"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "عدم تحمل الحرارة",
+            "datasetName": "heat_intolerance"
+        }
+    },
+    {
+        "model": "api.symptom",
         "fields": {
             "name": "القلق",
             "datasetName": "anxiety"
@@ -121,98 +631,121 @@
     },
     {
         "model": "api.symptom",
-        "pk": 18,
         "fields": {
-            "name": "أيدي وأقدام باردة",
-            "datasetName": "cold_hands_and_feets"
+            "name": "أرق",
+            "datasetName": "insomnia"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 19,
         "fields": {
-            "name": "تقلبات المزاج",
-            "datasetName": "mood_swings"
+            "name": "عيون منتفخة",
+            "datasetName": "bulging_eyes"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 21,
         "fields": {
-            "name": "قدمان منتفختان",
-            "datasetName": "restlessness"
+            "name": "التيبس الصباحي",
+            "datasetName": "morning_stiffness"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 22,
         "fields": {
-            "name": "عندما تكون الرؤية ضبابية",
-            "datasetName": "lethargy"
+            "name": "دفء واحمرار في المفاصل",
+            "datasetName": "warmth_and_redness_in_the_joints"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 23,
         "fields": {
-            "name": "الدوار",
-            "datasetName": "dizziness"
+            "name": "صلابة المفاصل بعد الراحة",
+            "datasetName": "joint_stiffness_after_inactivity"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 24,
         "fields": {
-            "name": "إصابة العين",
-            "datasetName": "blurred_and_distorted_vision"
+            "name": "فقدان وظيفة المفصل",
+            "datasetName": "loss_of_joint_function"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 25,
         "fields": {
-            "name": "الأرق",
-            "datasetName": "depression"
+            "name": "خدر أو وخز في اليدين والقدمين",
+            "datasetName": "numbness_or_tingling_in_hands_and_feet"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 26,
         "fields": {
-            "name": "انتفاخ البطن",
-            "datasetName": "abdominal_pain"
+            "name": "عقد روماتويدي",
+            "datasetName": "rheumatoid_nodules"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 27,
         "fields": {
-            "name": "الغثيان",
-            "datasetName": "nausea"
+            "name": "ألم في الوجه",
+            "datasetName": "facial_pain"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 28,
         "fields": {
-            "name": "حمى",
-            "datasetName": "fever"
+            "name": "بلغم أصفر أو أخضر",
+            "datasetName": "yellow_or_green_mucus"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 29,
         "fields": {
-            "name": "السعال",
-            "datasetName": "cough"
+            "name": "تقليل حاسة الشم",
+            "datasetName": "reduced_sense_of_smell"
         }
     },
     {
         "model": "api.symptom",
-        "pk": 30,
         "fields": {
-            "name": "صداع",
-            "datasetName": "headache"
+            "name": "ألم في الأسنان",
+            "datasetName": "tooth_pain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "رغبة ملحة في التبول",
+            "datasetName": "urge_to_urinate"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم أو حرقة أثناء التبول",
+            "datasetName": "pain_or_burning_during_urination"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "تعكر أو رائحة قوية للبول",
+            "datasetName": "cloudy_or_strong_smelling_urine"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "ألم في البطن السفلي",
+            "datasetName": "lower_abdominal_pain"
+        }
+    },
+    {
+        "model": "api.symptom",
+        "fields": {
+            "name": "كمية بول قليلة",
+            "datasetName": "small_urine_amount"
         }
     }
 ]

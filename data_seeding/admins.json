@@ -3,8 +3,8 @@
         "model": "api.admin",
         "pk": 1,
         "fields": {
-            "firstName": "Huda",
-            "lastName": "Al-Zaybak",
+            "firstName": "هدى",
+            "lastName": "الزيبق",
             "username": "huda",
             "password": "pbkdf2_sha256$600000$pI9cKsqbd5q96NpxjYoBeu$F3RQIHyhTWCgZRY28tgZVjQeGuWo3FHBt6zclHIuNpU="
         }
@@ -13,8 +13,8 @@
         "model": "api.admin",
         "pk": 2,
         "fields": {
-            "firstName": "Safa",
-            "lastName": "Khalid",
+            "firstName": "صفى",
+            "lastName": "خالد",
             "username": "safa",
             "password": "pbkdf2_sha256$600000$c6KioiyPqNlg0UPHC0EVEs$cZ0+QkDjvVaWyHVJMjP81aN+b/iBWqJnD5PkGJ6vHHc="
         }
@@ -23,8 +23,8 @@
         "model": "api.admin",
         "pk": 3,
         "fields": {
-            "firstName": "Ameena",
-            "lastName": "Ghousen",
+            "firstName": "أمينة",
+            "lastName": "غصن",
             "username": "ameena",
             "password": "pbkdf2_sha256$600000$Mvk2qndBbCT2MvJT16Pzik$IJZpAjFtbWUoNknnpoJ9CTP3Kh4RWjbmGzONj2ghLJA="
         }

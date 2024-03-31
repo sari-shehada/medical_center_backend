@@ -5,27 +5,27 @@ import joblib
 
 print('Initiating Model Training')
 
-training_dataset = pd.read_csv('api/ai_model/dataset/Training.csv')
+training_dataset = pd.read_csv('api/ai_model/dataset/disease_diagnosis.csv')
 
-desired_diseases = [
-    'GERD',
-    'Diabetes ',
-    'Migraine',
-    'Bronchial Asthma',
-    'hepatitis A',
-    'Heart attack',
-    'Hypothyroidism',
-    'Hyperthyroidism',
-    'Urinary tract infection',
-    'Gastroenteritis',
-    'Allergy',
-]
+# desired_diseases = [
+#     'GERD',
+#     'Diabetes ',
+#     'Migraine',
+#     'Bronchial Asthma',
+#     'hepatitis A',
+#     'Heart attack',
+#     'Hypothyroidism',
+#     'Hyperthyroidism',
+#     'Urinary tract infection',
+#     'Gastroenteritis',
+#     'Allergy',
+# ]
 
-training_dataset = training_dataset[training_dataset['prognosis'].isin(
-    desired_diseases)]
+# training_dataset = training_dataset[training_dataset['prognosis'].isin(
+#     desired_diseases)]
 
 training_symptoms = training_dataset.drop('prognosis', axis=1)
-training_symptoms = training_symptoms.drop('Unnamed: 133', axis=1)
+# training_symptoms = training_symptoms.drop('Unnamed: 133', axis=1)
 training_disease = training_dataset['prognosis']
 
 training_symptoms, testing_symptoms, training_disease, testing_disease = train_test_split(
