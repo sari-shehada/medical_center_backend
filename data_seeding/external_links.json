@@ -1,0 +1,11 @@
+[
+    {
+        "model": "api.diseaseExternalLink",
+        "pk": 1,
+        "fields": {
+            "title": "نزلة برد",
+            "link": "Common Cold",
+            "diseaseId": 1
+        }
+    }
+]
