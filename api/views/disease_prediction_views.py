@@ -17,7 +17,14 @@ model_path = os.path.join(API_APP_DIR, 'ai_model/classification_model.pkl')
 ordered_symptoms_path = os.path.join(
     API_APP_DIR, 'ai_model/columns_order.json')
 
+
+def load_columns_order():
+    with open(ordered_symptoms_path, 'r') as file:
+        return json.load(file)
+
+
 classification_model = joblib.load(model_path)
+columns_order = load_columns_order()
 
 
 @api_view(['POST'])
@@ -42,14 +49,13 @@ def diagnoseDisease(request, userId):
 
 
 def makePredictionDataFrame(symptomDatasetNames):
-    with open(ordered_symptoms_path, 'r') as file:
-        symptoms = json.load(file)
-    inputData = {key: 0 for key in symptoms}
+
+    inputData = {key: 0 for key in columns_order}
     for symptom in symptomDatasetNames:
         inputData[symptom] = 1
 
     dataFrame = pd.DataFrame(inputData, index=[0])
-    dataFrame = dataFrame.reindex(columns=symptoms)
+    dataFrame = dataFrame.reindex(columns=columns_order)
     return dataFrame
 
 
