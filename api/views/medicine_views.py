@@ -4,7 +4,18 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import check_password
 
-from api.serializers import AddMedicineSerializer, DiseaseMedicineIdsListSerializer, MedicineIdsListSerializer
+from api.serializers import AddMedicineSerializer, DiseaseMedicineIdsListSerializer, MedicineDisplaySerializer, MedicineIdsListSerializer
+
+
+@api_view(['GET'])
+def getAll(request):
+    medicines = Medicine.objects.all()
+    return Response(
+        MedicineDisplaySerializer(medicines,
+                                  many=True,
+                                  context={'request': request}
+                                  ).data
+    )
 
 
 @api_view(['POST'])

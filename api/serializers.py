@@ -103,6 +103,12 @@ class DiseaseOnlySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class MedicineDisplaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Medicine
+        fields = '__all__'
+
+
 class DiseaseDetailsSerializer(serializers.ModelSerializer):
     externalLinks = serializers.SerializerMethodField(read_only=True)
     suggestedMedicines = serializers.SerializerMethodField(read_only=True)
