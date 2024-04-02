@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
 
 
 class Admin(models.Model):
@@ -18,6 +19,8 @@ class Doctor(models.Model):
     username = models.CharField(max_length=30, unique=True)
     password = models.CharField(max_length=200)
     dateOfBirth = models.DateField()
+    careerStartDate = models.DateField()
+    isMale = models.BooleanField()
     certificateUrl = models.ImageField(upload_to='doctor_certificates/')
     isApproved = models.BooleanField(default=False)
     approvingAdminId = models.ForeignKey(
@@ -49,6 +52,9 @@ class Disease(models.Model):
 
 class DiseaseExternalLink(models.Model):
     title = models.CharField(max_length=200)
+    brief = models.CharField(max_length=500)
+    imageUrl = models.ImageField(
+        null=True, blank=True, upload_to='external_links')
     link = models.CharField(max_length=2000)
     diseaseId = models.ForeignKey(Disease, on_delete=models.CASCADE)
 
