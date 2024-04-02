@@ -72,3 +72,17 @@ def submitNewMedicalCase(request, userId, diagnosisId):
         isSubmittedForFurtherFollowup=True)
 
     return Response('This diagnosis was submitted as a medical case', status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def deleteDiagnosis(request, userId, diagnosisId):
+    patientDiagnosis = PatientDiagnosis.objects.filter(id=diagnosisId).first()
+    if not patientDiagnosis:
+        return Response('This Diagnosis was not found, perhaps it was removed!', status=status.HTTP_404_NOT_FOUND)
+
+    if patientDiagnosis.patientId.pk != userId:
+        return Response('Invalid patient id provided', status=status.HTTP_400_BAD_REQUEST)
+
+    PatientDiagnosis.objects.filter(id=diagnosisId).delete()
+
+    return Response(True, status=status.HTTP_200_OK)

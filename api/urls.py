@@ -28,6 +28,7 @@ api_urls = [
     # Adding and removing medicines to diseases
     path('medicines/', medicine_views.getAll),
     path('medicines/new/', medicine_views.addMedicine),
+    path('medicines/<int:medicineId>/delete', medicine_views.deleteMedicine),
     path('disease/<int:diseaseId>/addMedicines/',
          medicine_views.addMedicinesToDisease),
     path('disease/<int:diseaseId>/removeMedicines/',
@@ -50,6 +51,8 @@ api_urls = [
          disease_prediction_views.diagnoseDisease),
     path('patients/<int:userId>/diagnostics/<int:diagnosisId>/submitMedicalCase/',
          patient_views.submitNewMedicalCase),
+    path('patients/<int:userId>/diagnostics/<int:diagnosisId>/delete/',
+         patient_views.deleteDiagnosis),
 
     # Medical Case Chat end-points
     path('medicalCases/<int:caseId>/',

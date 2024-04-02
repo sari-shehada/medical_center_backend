@@ -29,6 +29,12 @@ def addMedicine(request):
 
 
 @api_view(['POST'])
+def deleteMedicine(request, medicineId):
+    Medicine.objects.filter(id=medicineId).delete()
+    return Response(True, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
 def addMedicinesToDisease(request, diseaseId):
     try:
         disease = Disease.objects.get(id=diseaseId)
