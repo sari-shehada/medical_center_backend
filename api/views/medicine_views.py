@@ -1,10 +1,10 @@
-from api.models import Admin, Disease, DiseaseMedicine, Medicine
+from api.models import Admin, Disease, DiseaseMedicine, Medicine, DiseaseExternalLink
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import check_password
 
-from api.serializers import AddMedicineSerializer, DiseaseMedicineIdsListSerializer, MedicineDisplaySerializer, MedicineIdsListSerializer
+from api.serializers import AddMedicineSerializer, DiseaseMedicineIdsListSerializer, MedicineDisplaySerializer, MedicineIdsListSerializer, ExternalLinkDisplaySerializer
 
 
 @api_view(['GET'])
@@ -66,3 +66,9 @@ def removeMedicinesFromDisease(request, diseaseId):
     DiseaseMedicine.objects.filter(
         id__in=diseaseMedicineIds, diseaseId=diseaseId).delete()
     return Response(True, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def getExternalLinksForDisease(request, diseaseId):
+    links = DiseaseExternalLink.objects.filter(diseaseId=diseaseId)
+    return Response(ExternalLinkDisplaySerializer(links).data, status=status.HTTP_200_OK)

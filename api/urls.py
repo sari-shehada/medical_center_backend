@@ -33,6 +33,8 @@ api_urls = [
          medicine_views.addMedicinesToDisease),
     path('disease/<int:diseaseId>/removeMedicines/',
          medicine_views.removeMedicinesFromDisease),
+    path('disease/<int:diseaseId>/externalLinks/',
+         disease_views.getExternalLinksForDisease),
 
     # Doctor end-points
     path('doctors/new/', doctor_views.registerNewDoctor),
