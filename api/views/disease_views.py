@@ -55,7 +55,7 @@ def getReadingList(request):
     }).data)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def getExternalLinksForDisease(request, diseaseId):
     links = DiseaseExternalLink.objects.filter(diseaseId=diseaseId)
     return Response(ExternalLinkDisplaySerializer(links, many=True, context={
