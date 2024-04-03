@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from api.serializers import AddExternalLinkSerializer, DiseaseDetailsSerializer, DiseaseOnlySerializer, ExternalLinkDetailsSerializer, SymptomDisplaySerializer
+from api.serializers import AddExternalLinkSerializer, DiseaseDetailsSerializer, DiseaseOnlySerializer, ExternalLinkDetailsSerializer, ExternalLinkDisplaySerializer, SymptomDisplaySerializer
 
 
 @api_view(['POST'])
@@ -50,4 +50,14 @@ def getReadingList(request):
     external_links = DiseaseExternalLink.objects.filter(id__in=selectedIds)
     external_links = list(external_links)
     random.shuffle(external_links)
-    return Response(ExternalLinkDetailsSerializer(external_links, many=True).data)
+    return Response(ExternalLinkDetailsSerializer(external_links, many=True, context={
+        'request': request
+    }).data)
+
+
+@api_view(['POST'])
+def getExternalLinksForDisease(request, diseaseId):
+    links = DiseaseExternalLink.objects.filter(diseaseId=diseaseId)
+    return Response(ExternalLinkDisplaySerializer(links, many=True, context={
+        'request': request
+    }).data, status=status.HTTP_200_OK)
