@@ -114,9 +114,10 @@ class DiseaseDetailsSerializer(serializers.ModelSerializer):
     suggestedMedicines = serializers.SerializerMethodField(read_only=True)
 
     def get_externalLinks(self, disease):
+        request = self.context.get('request')
         external_links = DiseaseExternalLink.objects.filter(
             diseaseId=disease.pk)
-        return ExternalLinkDisplaySerializer(external_links, many=True).data
+        return ExternalLinkDisplaySerializer(external_links, many=True, context={'request': request}).data
 
     def get_suggestedMedicines(self, disease):
         request = self.context.get('request')
@@ -228,7 +229,8 @@ class ExternalLinkDetailsSerializer(serializers.ModelSerializer):
     disease = serializers.SerializerMethodField(read_only=True)
 
     def get_externalLink(self, external_link):
-        return ExternalLinkDisplaySerializer(external_link).data
+        request = self.context.get('request')
+        return ExternalLinkDisplaySerializer(external_link, context={'request': request}).data
 
     def get_disease(self, external_link):
         return DiseaseOnlySerializer(external_link.diseaseId).data
