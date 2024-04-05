@@ -52,7 +52,7 @@ def getById(request, userId):
 @api_view(['GET'])
 def getDiagnosisHistory(request, userId):
     diagnostics = PatientDiagnosis.objects.filter(patientId=userId)
-    return Response(DiagnosisDetailsSerializer(diagnostics, many=True).data, status=status.HTTP_200_OK)
+    return Response(DiagnosisDetailsSerializer(diagnostics, context={'request': request}, many=True).data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
