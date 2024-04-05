@@ -18,6 +18,18 @@ def getAll(request):
     )
 
 
+@api_view(['GET'])
+def getMedicinesForDisease(request, diseaseId):
+    medicines = DiseaseMedicine.objects.filter(diseaseId = diseaseId)
+    medicines = [medicine.medicineId for medicine in medicines]
+    return Response(
+        MedicineDisplaySerializer(medicines,
+                                  many=True,
+                                  context={'request': request}
+                                  ).data
+    )
+
+
 @api_view(['POST'])
 def addMedicine(request):
     body = request.data

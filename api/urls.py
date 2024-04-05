@@ -29,6 +29,8 @@ api_urls = [
     path('medicines/', medicine_views.getAll),
     path('medicines/new/', medicine_views.addMedicine),
     path('medicines/<int:medicineId>/delete/', medicine_views.deleteMedicine),
+    path('disease/<int:diseaseId>/medicines/',
+         medicine_views.getMedicinesForDisease),
     path('disease/<int:diseaseId>/addMedicines/',
          medicine_views.addMedicinesToDisease),
     path('disease/<int:diseaseId>/removeMedicines/',
