@@ -42,6 +42,7 @@ api_urls = [
     path('doctors/new/', doctor_views.registerNewDoctor),
     path('doctors/login/', doctor_views.loginDoctor),
     path('doctors/<int:userId>/', doctor_views.getById),
+    path('doctors/<int:userId>/medicalCases/', doctor_views.getMyMedicalCases),
     path('medicalCases/', doctor_views.getNewMedicalCases),
     path('medicalCases/<int:caseId>/takeCase/', doctor_views.takeMedicalCase),
 
