@@ -54,8 +54,8 @@ def getById(request, userId):
 
 
 @api_view(['GET'])
-def getMyMedicalCases(request, doctorId):
-    newCases = MedicalCase.objects.filter(takenBy=doctorId).order_by('id')
+def getMyMedicalCases(request, userId):
+    newCases = MedicalCase.objects.filter(takenBy=userId).order_by('id')
     return Response(MedicalCaseDetailsSerializer(newCases, many=True).data)
 
 
