@@ -184,6 +184,7 @@ class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
     patientDiagnosis = serializers.SerializerMethodField(read_only=True)
     disease = serializers.SerializerMethodField(read_only=True)
     symptoms = serializers.SerializerMethodField(read_only=True)
+    patient = serializers.SerializerMethodField(read_only=True)
 
     def get_medicalCase(self, medical_case):
         return MedicalCaseOnlySerializer(medical_case).data
@@ -194,6 +195,9 @@ class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
 
     def get_disease(self, medical_case):
         return DiseaseOnlySerializer(medical_case.diagnosisId.diseaseId).data
+
+    def get_patient(self, medical_case):
+        return PatientDisplaySerializer(medical_case.diagnosisId.patientId).data
 
     def get_symptoms(self, medical_case):
         diagnosisSymptoms = PatientDiagnosisSymptom.objects.filter(
@@ -209,6 +213,7 @@ class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
             'patientDiagnosis',
             'disease',
             'symptoms',
+            'patient',
         ]
 
 
