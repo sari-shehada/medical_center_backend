@@ -52,6 +52,8 @@ api_urls = [
     path('patients/<int:userId>/', patient_views.getById),
     path('patients/<int:userId>/diagnosisHistory/',
          patient_views.getDiagnosisHistory),
+    path('patients/<int:userId>/medicalCases/',
+         patient_views.getMedicalCases),
     path('patients/<int:userId>/diagnoseDisease/',
          disease_prediction_views.diagnoseDisease),
     path('patients/<int:userId>/diagnostics/<int:diagnosisId>/submitMedicalCase/',

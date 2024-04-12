@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import make_password, check_password
 
-from api.serializers import AddPatientSerializer, PatientDisplaySerializer, DiagnosisDetailsSerializer
+from api.serializers import AddPatientSerializer, MedicalCaseDetailsSerializer, PatientDisplaySerializer, DiagnosisDetailsSerializer
 
 
 @api_view(['POST'])
@@ -53,6 +53,15 @@ def getById(request, userId):
 def getDiagnosisHistory(request, userId):
     diagnostics = PatientDiagnosis.objects.filter(patientId=userId)
     return Response(DiagnosisDetailsSerializer(diagnostics, context={'request': request}, many=True).data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def getMedicalCases(request, userId):
+    diagnostics = PatientDiagnosis.objects.filter(
+        patientId=userId, isSubmittedForFurtherFollowup=True)
+    diagnosticsIds = [diagnosis.pk for diagnosis in diagnostics]
+    newCases = MedicalCase.objects.filter(diagnosisId__in=diagnosticsIds)
+    return Response(MedicalCaseDetailsSerializer(newCases, many=True).data)
 
 
 @api_view(['POST'])
