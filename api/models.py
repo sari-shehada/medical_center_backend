@@ -131,5 +131,6 @@ class MedicalCaseMessage(models.Model):
     caseId = models.ForeignKey(MedicalCase, on_delete=models.CASCADE)
     message = models.CharField(max_length=150,)
     senderIsDoctor = models.BooleanField()
+    sentAt = models.DateTimeField(default=timezone.now)
     urgencyLevel = models.CharField(
         max_length=100, choices=message_urgency_level, default='normal')

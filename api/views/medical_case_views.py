@@ -20,7 +20,10 @@ def getMedicalCaseMessages(request, caseId):
 @api_view(['POST'])
 def sendMessageToMedicalCaseChat(request, caseId):
     requestData = request.data
-    requestData._mutable = True
+    try:
+        requestData._mutable = True
+    except:
+        print('not mutable')
     requestData['caseId'] = caseId
     addMessageSerializer = AddMedicalCaseMessageSerializer(data=requestData)
     if addMessageSerializer.is_valid():

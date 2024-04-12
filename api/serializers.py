@@ -220,7 +220,7 @@ class MedicalCaseDetailsSerializer(serializers.ModelSerializer):
 class AddMedicalCaseMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalCaseMessage
-        fields = '__all__'
+        exclude = ['sentAt']
 
 
 class MedicalCaseMessageDisplaySerializer(serializers.ModelSerializer):
@@ -245,4 +245,53 @@ class ExternalLinkDetailsSerializer(serializers.ModelSerializer):
         fields = [
             'externalLink',
             'disease'
+        ]
+
+
+class PatientMedicalCaseDetailsSerializer(serializers.ModelSerializer):
+    medicalCase = serializers.SerializerMethodField(read_only=True)
+    disease = serializers.SerializerMethodField(read_only=True)
+    patientDiagnosis = serializers.SerializerMethodField(read_only=True)
+    symptoms = serializers.SerializerMethodField(read_only=True)
+    assignedDoctor = serializers.SerializerMethodField(read_only=True)
+
+    numberOfUnreadMessages = serializers.SerializerMethodField(read_only=True)
+
+    def get_medicalCase(self, medical_case):
+        return MedicalCaseOnlySerializer(medical_case).data
+
+    def get_patientDiagnosis(self, medical_case):
+
+        return PatientDiagnosisOnlySerializer(medical_case.diagnosisId).data
+
+    def get_disease(self, medical_case):
+        return DiseaseOnlySerializer(medical_case.diagnosisId.diseaseId).data
+
+    def get_patient(self, medical_case):
+        return PatientDisplaySerializer(medical_case.diagnosisId.patientId).data
+
+    def get_symptoms(self, medical_case):
+        diagnosisSymptoms = PatientDiagnosisSymptom.objects.filter(
+            patientDiagnosisId=medical_case.diagnosisId.pk)
+        diagnosisSymptoms = [
+            diagnosisSymptom.symptomId for diagnosisSymptom in diagnosisSymptoms]
+        return SymptomDisplaySerializer(diagnosisSymptoms, many=True).data
+
+    def get_assignedDoctor(self, medical_case):
+        if (medical_case.status == 'pending'):
+            return None
+        return DoctorDisplaySerializer(medical_case.takenBy).data
+
+    def get_numberOfUnreadMessages(self, medical_case):
+        return 3
+
+    class Meta:
+        model = MedicalCase
+        fields = [
+            'medicalCase',
+            'patientDiagnosis',
+            'disease',
+            'symptoms',
+            'assignedDoctor',
+            'numberOfUnreadMessages',
         ]

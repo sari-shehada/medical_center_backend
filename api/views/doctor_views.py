@@ -76,7 +76,6 @@ def takeMedicalCase(request, caseId):
         return Response('Doctor not found', status=status.HTTP_404_NOT_FOUND)
     medicalCase = MedicalCase.objects.filter(id=caseId).first()
     if not medicalCase:
-        # TODO: Localize these 2
         return Response('Medical Case not found, perhaps it was deleted', status=status.HTTP_404_NOT_FOUND)
     if medicalCase.status != 'pending':
         return Response('This case is already taken', status=status.HTTP_400_BAD_REQUEST)
