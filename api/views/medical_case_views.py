@@ -29,5 +29,5 @@ def sendMessageToMedicalCaseChat(request, caseId):
     addMessageSerializer = AddMedicalCaseMessageSerializer(data=requestData)
     if addMessageSerializer.is_valid():
         addMessageSerializer.save()
-        Response(MedicalCaseMessagesSerializer(medical_case).data)
+        return Response(MedicalCaseMessagesSerializer(medical_case).data)
     return Response(addMessageSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
