@@ -295,3 +295,22 @@ class PatientMedicalCaseDetailsSerializer(serializers.ModelSerializer):
             'assignedDoctor',
             'numberOfUnreadMessages',
         ]
+
+
+class MedicalCaseMessagesSerializer(serializers.ModelSerializer):
+    messages = serializers.SerializerMethodField(read_only=True)
+    hasEnded = serializers.SerializerMethodField(read_only=True)
+
+    def get_messages(self, medical_case):
+        messages = MedicalCaseMessage.objects.filter(caseId=medical_case.pk)
+        return MedicalCaseMessageDisplaySerializer(messages, many=True).data
+
+    def get_hasEnded(self, medical_case):
+        return medical_case.status == 'ended'
+
+    class Meta:
+        model = MedicalCase
+        fields = [
+            'messages',
+            'hasEnded',
+        ]
