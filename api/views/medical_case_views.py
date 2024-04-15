@@ -19,8 +19,9 @@ def sendMessageToMedicalCaseChat(request, caseId):
     requestData = request.data
     try:
         requestData._mutable = True
-    finally:
-        requestData['caseId'] = caseId
+    except:
+        pass
+    requestData['caseId'] = caseId
     medical_case = MedicalCase.objects.filter(id=caseId).first()
     if (not medical_case):
         return Response(status=status.HTTP_404_NOT_FOUND)

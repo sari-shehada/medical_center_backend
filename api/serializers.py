@@ -255,8 +255,6 @@ class PatientMedicalCaseDetailsSerializer(serializers.ModelSerializer):
     symptoms = serializers.SerializerMethodField(read_only=True)
     assignedDoctor = serializers.SerializerMethodField(read_only=True)
 
-    numberOfUnreadMessages = serializers.SerializerMethodField(read_only=True)
-
     def get_medicalCase(self, medical_case):
         return MedicalCaseOnlySerializer(medical_case).data
 
@@ -282,9 +280,6 @@ class PatientMedicalCaseDetailsSerializer(serializers.ModelSerializer):
             return None
         return DoctorDisplaySerializer(medical_case.takenBy).data
 
-    def get_numberOfUnreadMessages(self, medical_case):
-        return 3
-
     class Meta:
         model = MedicalCase
         fields = [
@@ -293,7 +288,6 @@ class PatientMedicalCaseDetailsSerializer(serializers.ModelSerializer):
             'disease',
             'symptoms',
             'assignedDoctor',
-            'numberOfUnreadMessages',
         ]
 
 
