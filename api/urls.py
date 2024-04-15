@@ -45,6 +45,7 @@ api_urls = [
     path('doctors/<int:userId>/medicalCases/', doctor_views.getMyMedicalCases),
     path('medicalCases/', doctor_views.getNewMedicalCases),
     path('medicalCases/<int:caseId>/takeCase/', doctor_views.takeMedicalCase),
+    path('medicalCases/<int:caseId>/endCase/', doctor_views.endMedicalCase),
 
     # Patient end-points
     path('patients/new/', patient_views.registerNewPatient),

@@ -5,7 +5,7 @@ from rest_framework import status
 from django.contrib.auth.hashers import make_password, check_password
 
 
-from api.serializers import AddDoctorSerializer, DoctorDisplaySerializer, MedicalCaseDetailsSerializer
+from api.serializers import AddDoctorSerializer, DoctorDisplaySerializer, MedicalCaseDetailsSerializer, MedicalCaseMessagesSerializer
 
 
 @api_view(['POST'])
@@ -84,3 +84,26 @@ def takeMedicalCase(request, caseId):
         status='taken', takenBy=doctorId)
 
     return Response(True)
+
+
+@api_view(['POST'])
+def endMedicalCase(request, caseId):
+    doctorId = request.data.get('doctorId')
+
+    if not doctorId:
+        return Response('No doctor id was provided', status=status.HTTP_400_BAD_REQUEST)
+    doctor = Doctor.objects.filter(id=doctorId).first()
+    if not doctor:
+        return Response('Doctor not found', status=status.HTTP_404_NOT_FOUND)
+    medicalCase = MedicalCase.objects.filter(id=caseId).first()
+    if not medicalCase:
+        return Response('Medical Case not found, perhaps it was deleted', status=status.HTTP_404_NOT_FOUND)
+    if medicalCase.status == 'ended':
+        return Response(MedicalCaseMessagesSerializer(medicalCase).data)
+
+    if (medicalCase.takenBy.pk != doctorId):
+        return Response('This medical case does not belong to this doctor', status=status.HTTP_400_BAD_REQUEST)
+
+    MedicalCase.objects.filter(id=caseId).update(status='ended')
+
+    return Response(MedicalCaseMessagesSerializer(medicalCase).data)
